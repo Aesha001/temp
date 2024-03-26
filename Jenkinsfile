@@ -28,7 +28,7 @@ pipeline {
                     docker.image("${IMAGE_NAME}:${IMAGE_TAG}").tag(artifactTag)
 
                     // Authenticate with JSON key file
-                    withCredentials([file(credentialsId: 'json-key', variable: 'JSON_KEY_FILE')]) {
+                    withCredentials([file(credentialsId: 'jk-file', variable: 'JSON_KEY_FILE')]) {
                         sh "gcloud auth activate-service-account --key-file=${JSON_KEY_FILE}"
                     }
 
